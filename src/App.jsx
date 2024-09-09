@@ -1,4 +1,5 @@
 import { useFetch } from './components/Hook.jsx'
+import {Picture} from './components/Picture.jsx'
 
 import './App.css'
 
@@ -14,7 +15,8 @@ console.log('I got some data', data)
         <>
           <p>{data.id}</p>
           <p>{data.UserId}</p>
-          <p>{data.title}</p>git push -u origin master
+          <p>{data.title}</p>
+          <Picture />
         </>
       )}
      

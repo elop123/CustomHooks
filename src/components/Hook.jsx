@@ -9,6 +9,7 @@ export function useFetch(url){
         fetch(url)
         .then((res) => res.json())
         .then((json) => setData(json))
+        
         .catch((err) => console.error(err));
     }, [url]);
 

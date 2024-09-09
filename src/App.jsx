@@ -1,28 +1,36 @@
 import { useFetch } from './components/Hook.jsx'
-import {Picture} from './components/Picture.jsx'
+import {useImages} from './components/useImages.jsx'
+import s from './Style/useImage.module.scss'
 
 import './App.css'
 
-function App() {
+export default function App() {
   
-const {data} = useFetch(`https://jsonplaceholder.typicode.com/todos/1`)
+const {data} = useFetch(`https://jsonplaceholder.typicode.com/todos/1`);
+const {images} = useImages();
 
 console.log('I got some data', data)
+
   return (
-    <div>
-      
+    <>
+      <div>
       {data &&(
         <>
-          <p>{data.id}</p>
+        <p>{data.id}</p>
           <p>{data.UserId}</p>
           <p>{data.title}</p>
-          <Picture />
         </>
+          
       )}
-     
-    </div>
+      </div>
+       <div>
+        {images.map((image, index)=>(
+          <img key={index}  className={s.imageStyle} src={image} alt={`Image ${index}`}  />
+        ))}
+      </div> 
+    </>
     
   );
 }
 
-export default App
+
